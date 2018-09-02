@@ -27,10 +27,20 @@ type errorMessage struct {
 	ErrorCodes string `json:"errorCodes"`
 }
 
+type jsonOutput struct {
+	Bank   string `json:"bank"`
+	Name   string `json:"name"`
+	Bin    string `json:"bin"`
+	Type   string `json:"type"`
+	Length int    `json:"length"`
+}
+
 var card string
+var output string
 
 func init() {
 	flag.StringVar(&card, "c", "", "Bank card number to be checked")
+	flag.StringVar(&output, "o", "text", "Output format: `text, json`; Default: text")
 }
 
 func main() {
@@ -56,7 +66,11 @@ func main() {
 	}
 	cbc.CardNo = card
 
-	printCardBinCheckResult(cbc)
+	if output == "json" {
+		printCardBinCheckResultJSON(cbc)
+	} else {
+		printCardBinCheckResultText(cbc)
+	}
 }
 
 func makeURL(cardNo string) string {
@@ -70,19 +84,20 @@ func makeURL(cardNo string) string {
 
 func usage() {
 	fmt.Fprintf(os.Stderr, `
-Usage: bcbc -c=<card number>
+Usage: bcbc -c=<card number> [-o <text|json>]
 
 Flags:
 `)
 	flag.PrintDefaults()
 }
 
-func printCardBinCheckResult(result cardBinCheckResponse) {
+func printCardBinCheckResultText(result cardBinCheckResponse) {
 	if result.Stat == "ok" && result.Validated {
 		fmt.Println("Validated:", color.GreenString("✔"))
-		fmt.Println("No:", result.CardNo)
+		fmt.Println("No:", result.CardNo, "(", length(result.CardNo), "位", ")")
 		fmt.Println("Type:", result.CardType)
 		fmt.Println("Bank:", result.Bank)
+		fmt.Println("BankName:", bankName(result.Bank))
 	} else {
 		fmt.Println("Validated:", color.RedString("✘"))
 		fmt.Println("No:", result.CardNo)
@@ -91,4 +106,62 @@ func printCardBinCheckResult(result cardBinCheckResponse) {
 			fmt.Println(color.YellowString("!"), msg.Name, ":", msg.ErrorCodes)
 		}
 	}
+}
+
+func printCardBinCheckResultJSON(result cardBinCheckResponse) {
+	if result.Stat == "ok" && result.Validated {
+		output := jsonOutput{
+			Bank:   result.Bank,
+			Name:   bankName(result.Bank),
+			Bin:    cardBin(result.CardNo),
+			Type:   result.CardType,
+			Length: length(result.CardNo),
+		}
+		b, err := json.Marshal(output)
+		if err != nil {
+			log.Fatalln(err)
+		}
+		fmt.Println(string(b))
+	} else {
+		output := struct {
+			Validated bool
+			No        string
+			Messages  string
+		}{
+			Validated: false,
+			No:        result.CardNo,
+			Messages:  inlineMessages(result.Messages),
+		}
+		b, err := json.Marshal(output)
+		if err != nil {
+			log.Fatalln(err)
+		}
+		fmt.Println(string(b))
+	}
+}
+
+func length(s string) int {
+	return len([]rune(s))
+}
+
+func bankName(bank string) string {
+	if name, ok := bankNameMap[bank]; ok {
+		return name
+	}
+	return "Unknown"
+}
+
+func cardBin(cardNo string) string {
+	if length(cardNo) < 6 {
+		return ""
+	}
+	return cardNo[:6]
+}
+
+func inlineMessages(msgs []errorMessage) string {
+	var m string
+	for _, msg := range msgs {
+		m += fmt.Sprintf("%v: %v;", msg.Name, msg.ErrorCodes)
+	}
+	return m
 }

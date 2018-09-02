@@ -12,11 +12,13 @@ go get -u -v github.com/runrioter/bcbc
 ## Usage
 
 ```
-Usage: bcbc -c=<card number>
+Usage: bcbc -c=<card number> [-o <text|json>]
 
 Flags:
   -c string
-        Bank card number to be checked
+    	Bank card number to be checked
+  -o text, json
+    	Output format: text, json; Default: text (default "text")
 ```
 
 ## Thanks
