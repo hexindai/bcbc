@@ -28,9 +28,9 @@ type errorMessage struct {
 }
 
 type jsonOutput struct {
+	Bin    string `json:"bin"`
 	Bank   string `json:"bank"`
 	Name   string `json:"name"`
-	Bin    string `json:"bin"`
 	Type   string `json:"type"`
 	Length int    `json:"length"`
 }
@@ -111,9 +111,9 @@ func printCardBinCheckResultText(result cardBinCheckResponse) {
 func printCardBinCheckResultJSON(result cardBinCheckResponse) {
 	if result.Stat == "ok" && result.Validated {
 		output := jsonOutput{
+			Bin:    cardBin(result.CardNo),
 			Bank:   result.Bank,
 			Name:   bankName(result.Bank),
-			Bin:    cardBin(result.CardNo),
 			Type:   result.CardType,
 			Length: length(result.CardNo),
 		}
