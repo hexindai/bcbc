@@ -114,13 +114,14 @@ var bankNameMap = map[string]string{
 	"KLB":       "昆仑银行",
 	"KSRB":      "昆山农村商业银行",
 
-	"LSBANK": "莱商银行",
 	"LANGFB": "廊坊银行",
-	"LZYH":   "兰州银行",
-	"LYBANK": "洛阳银行",
-	"LSCCB":  "乐山市商业银行",
-	"LYCB":   "辽阳市商业银行",
+	"LNRCC":  "辽宁省农村信用社",
+	"LSBANK": "莱商银行",
 	"LSBC":   "临商银行",
+	"LSCCB":  "乐山市商业银行",
+	"LYBANK": "洛阳银行",
+	"LYCB":   "辽阳市商业银行",
+	"LZYH":   "兰州银行",
 
 	"MTBANK": "浙江民泰商业银行",
 
