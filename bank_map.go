@@ -125,15 +125,16 @@ var bankNameMap = map[string]string{
 
 	"MTBANK": "浙江民泰商业银行",
 
-	"NXRCU":  "宁夏黄河农村商业银行",
-	"NYNB":   "广东南粤银行",
-	"NJCB":   "南京银行",
-	"NXBANK": "宁夏银行",
-	"NHQS":   "农信银清算中心",
 	"NBBANK": "宁波银行",
-	"NHB":    "南海农村信用联社",
 	"NBYZ":   "鄞州银行",
 	"NCB":    "南昌银行",
+	"NHB":    "南海农村信用联社",
+	"NHQS":   "农信银清算中心",
+	"NJCB":   "南京银行",
+	"NMGNXS": "内蒙古农村信用社",
+	"NXBANK": "宁夏银行",
+	"NXRCU":  "宁夏黄河农村商业银行",
+	"NYNB":   "广东南粤银行",
 
 	"ORBANK": "鄂尔多斯银行",
 
