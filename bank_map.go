@@ -178,12 +178,13 @@ var bankNameMap = map[string]string{
 	"WZCB":  "温州银行",
 	"WJRCB": "吴江农商银行",
 
-	"XCYH":   "许昌银行",
 	"XABANK": "西安银行",
-	"XTB":    "邢台银行",
-	"XYBANK": "信阳银行",
-	"XXBANK": "新乡银行",
+	"XCYH":   "许昌银行",
+	"XJRCU":  "新疆农村信用社",
 	"XLBANK": "中山小榄村镇银行",
+	"XTB":    "邢台银行",
+	"XXBANK": "新乡银行",
+	"XYBANK": "信阳银行",
 
 	"YBCCB":    "宜宾市商业银行",
 	"YDNSCZYH": "尧都农商村镇银行",
