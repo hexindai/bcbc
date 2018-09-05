@@ -125,8 +125,9 @@ var bankNameMap = map[string]string{
 	"JZBANK":  "晋中市商业银行",
 	"JZCBANK": "焦作市商业银行",
 
-	"KORLABANK": "库尔勒市商业银行",
 	"KLB":       "昆仑银行",
+	"KMRCU":     "昆明农村信用联合社",
+	"KORLABANK": "库尔勒市商业银行",
 	"KSRB":      "昆山农村商业银行",
 
 	"LANGFB": "廊坊银行",
