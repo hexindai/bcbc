@@ -39,8 +39,8 @@ var card string
 var output string
 
 func init() {
-	flag.StringVar(&card, "c", "", "Bank card number to be checked")
-	flag.StringVar(&output, "o", "text", "Output format: `text, json`; Default: text")
+	flag.StringVar(&card, "c", "", "Bank `card number` to be checked")
+	flag.StringVar(&output, "o", "text", "Output format: `text, json`")
 }
 
 func main() {
@@ -83,7 +83,7 @@ func makeURL(cardNo string) string {
 }
 
 func usage() {
-	fmt.Fprintf(os.Stderr, `
+	fmt.Fprintf(flag.CommandLine.Output(), `
 Usage: bcbc -c=<card number> [-o <text|json>]
 
 Flags:
@@ -124,9 +124,9 @@ func printCardBinCheckResultJSON(result cardBinCheckResponse) {
 		fmt.Println(string(b))
 	} else {
 		output := struct {
-			Validated bool
-			No        string
-			Messages  string
+			Validated bool   `json:"validated"`
+			No        string `json:"no"`
+			Messages  string `json:"messages"`
 		}{
 			Validated: false,
 			No:        result.CardNo,
