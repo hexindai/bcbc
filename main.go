@@ -12,31 +12,35 @@ import (
 	"github.com/fatih/color"
 )
 
-type cardBinCheckResponse struct {
-	CardType  string         `json:"cardType"`
-	Bank      string         `json:"bank"`
-	Key       string         `json:"key"`
-	Messages  []errorMessage `json:"messages"`
-	Validated bool           `json:"validated"`
-	Stat      string         `json:"stat"`
-	CardNo    string
-}
+type (
+	cardBinCheckResponse struct {
+		CardType  string         `json:"cardType"`
+		Bank      string         `json:"bank"`
+		Key       string         `json:"key"`
+		Messages  []errorMessage `json:"messages"`
+		Validated bool           `json:"validated"`
+		Stat      string         `json:"stat"`
+		CardNo    string
+	}
 
-type errorMessage struct {
-	Name       string `json:"name"`
-	ErrorCodes string `json:"errorCodes"`
-}
+	errorMessage struct {
+		Name       string `json:"name"`
+		ErrorCodes string `json:"errorCodes"`
+	}
 
-type jsonOutput struct {
-	Bin    string `json:"bin"`
-	Bank   string `json:"bank"`
-	Name   string `json:"name"`
-	Type   string `json:"type"`
-	Length int    `json:"length"`
-}
+	jsonOutput struct {
+		Bin    string `json:"bin"`
+		Bank   string `json:"bank"`
+		Name   string `json:"name"`
+		Type   string `json:"type"`
+		Length int    `json:"length"`
+	}
+)
 
-var card string
-var output string
+var (
+	card   string
+	output string
+)
 
 func init() {
 	flag.StringVar(&card, "c", "", "Bank `card number` to be checked")

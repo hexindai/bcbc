@@ -18,7 +18,7 @@ Flags:
   -c string
     	Bank card number to be checked
   -o text, json
-    	Output format: text, json; Default: text (default "text")
+    	Output format: text, json (default "text")
 ```
 
 ## Thanks
