@@ -1,6 +1,7 @@
-package main
+package bank
 
-var bankNameMap = map[string]string{
+// BankNameMap standards for Bank abbr and name map
+var BankNameMap = map[string]string{
 	"ABC":  "中国农业银行",
 	"AEON": "AEON银行",
 	"ARCU": "安徽省农村信用社",
