@@ -8,31 +8,6 @@ import (
 	"github.com/hexindai/bcbc/bank"
 )
 
-type (
-	cardBinCheckResponse struct {
-		CardType  string         `json:"cardType"`
-		Bank      string         `json:"bank"`
-		Key       string         `json:"key"`
-		Messages  []errorMessage `json:"messages"`
-		Validated bool           `json:"validated"`
-		Stat      string         `json:"stat"`
-		CardNo    string
-	}
-
-	errorMessage struct {
-		Name       string `json:"name"`
-		ErrorCodes string `json:"errorCodes"`
-	}
-
-	jsonOutput struct {
-		Bin    string `json:"bin"`
-		Bank   string `json:"bank"`
-		Name   string `json:"name"`
-		Type   string `json:"type"`
-		Length int    `json:"length"`
-	}
-)
-
 var (
 	card   string
 	output string
