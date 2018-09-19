@@ -27,6 +27,7 @@ var serveCmd = &cobra.Command{
 			cardNo := req.FormValue("cardNo")
 			cbcr := bank.FetchCardBinCheckByCard(cardNo)
 
+			w.Header().Set("Content-Type", "application/json; charset=utf-8")
 			cbcr.WriteResponse(w, bank.JSONContentType)
 
 		})
