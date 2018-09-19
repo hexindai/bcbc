@@ -8,7 +8,7 @@ bcbc是一个根据银行卡号，通过卡bin来判断所属银行的命令行
 ## Install
 
 ```bash
-go get -u -v github.com/runrioter/bcbc
+go get -u -v github.com/hexindai/bcbc
 ```
 
 ## Usage
@@ -32,6 +32,28 @@ Flags:
 Use "bcbc [command] --help" for more information about a command.
 ```
 
+#### CLI mode
+
+```bash
+bcbc search -c 6222021234567890123 -o json
+```
+
+#### Server Mode
+
+Default port is 3232
+
+```bash
+bcbc serve -p :3232
+```
+
+Result
+
+```
+$ curl http://127.0.0.1:3232/cardInfo.json\?cardNo\=6222021234567890123
+
+> {"bin":"622202","bank":"ICBC","name":"中国工商银行","type":"DC","length":19}
+```
+
 ## Thanks
 
 HTTP API Provider @alipay
@@ -41,4 +63,4 @@ HTTP API Provider @alipay
 
 [MIT License](LICENSE)
 
-Copyright (c) 2018 Runrioter
+Copyright (c) 2018

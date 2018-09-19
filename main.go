@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/runrioter/bcbc/cmd"
+	"github.com/hexindai/bcbc/cmd"
 )
 
 func main() {

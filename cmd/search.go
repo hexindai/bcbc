@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/runrioter/bcbc/bank"
+	"github.com/hexindai/bcbc/bank"
 )
 
 type (

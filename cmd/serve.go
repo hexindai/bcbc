@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/runrioter/bcbc/bank"
+	"github.com/hexindai/bcbc/bank"
 	"github.com/spf13/cobra"
 )
 

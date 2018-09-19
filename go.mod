@@ -1,4 +1,4 @@
-module github.com/runrioter/bcbc
+module github.com/hexindai/bcbc
 
 require (
 	github.com/fatih/color v1.7.0
