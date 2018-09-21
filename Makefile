@@ -19,3 +19,5 @@ build:
 
 install:
 	go install $(REPOPATH)
+
+.PHONY: install
