@@ -54,11 +54,6 @@ $ curl http://127.0.0.1:3232/cardInfo.json\?cardNo\=6222021234567890123
 > {"bin":"622202","bank":"ICBC","name":"中国工商银行","type":"DC","length":19}
 ```
 
-## Thanks
-
-HTTP API Provider @alipay
-
-
 ## License
 
 [MIT License](LICENSE)
