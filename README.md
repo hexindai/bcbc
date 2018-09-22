@@ -15,9 +15,9 @@ bcbc是一个根据银行卡号，通过卡bin来判断所属银行的命令行
 go get -u -v github.com/hexindai/bcbc
 ```
 
-## 用法
+## 用法
 
-**以一下*nix为例，windows下用bcbc.exe**
+**以一下*nix为例，windows下用bcbc.exe**
 
 ```
 ➜ bcbc -h
