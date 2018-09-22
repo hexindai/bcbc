@@ -3,13 +3,21 @@ bcbc
 
 bcbc是一个根据银行卡号，通过卡bin来判断所属银行的命令行
 
-## Install
+## 安装
+
+1. 直接下载安装
+
+:point_right: [下载地址](https://github.com/hexindai/bcbc/releases)
+
+2. 如果是开发者，并且安装go
 
 ```bash
 go get -u -v github.com/hexindai/bcbc
 ```
 
-## Usage
+## 用法
+
+**以一下*nix为例，windows下用bcbc.exe**
 
 ```
 ➜ bcbc -h

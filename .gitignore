@@ -1,5 +1,11 @@
+# ide
 .vscode
 
+# resource
 resource
 
+# goreleaser
+dist
+
+# bin
 bcbc
