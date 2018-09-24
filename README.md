@@ -17,7 +17,7 @@ go get -u -v github.com/hexindai/bcbc
 
 ## 用法
 
-**以一下*nix为例，windows下用bcbc.exe**
+**以*nix为例，windows下用bcbc.exe**
 
 ```
 ➜ bcbc -h
@@ -29,6 +29,7 @@ Usage:
 
 Available Commands:
   help        Help about any command
+  list        List all bank cardbins
   search      Search bankcard info
   serve       Start a http bankcard info server
 
