@@ -2,8 +2,12 @@ package cmd
 
 import (
 	"fmt"
+	"log"
+	"os"
+	"os/exec"
 
 	"github.com/hexindai/bcbc/bank"
+
 	"github.com/spf13/cobra"
 )
 
@@ -16,14 +20,32 @@ var listCmd = &cobra.Command{
 	Short: "List all bank cardbins",
 	Long:  "\nList all bank cardbins",
 	Run: func(cmd *cobra.Command, args []string) {
-		for _, bin := range bank.CardBINs {
-			fmt.Printf("Bin: %s, Bank: %s, Name: %s Type: %s, Length: %v\n",
-				bin.Bin,
-				bin.Bank,
-				bank.BankNameMap[bin.Bank],
-				bin.Type,
-				bin.Length,
-			)
+
+		pager := os.Getenv("PAGER")
+
+		c := exec.Command(pager)
+		c.Stdout = os.Stdout
+		c.Stderr = os.Stderr
+		c.Env = os.Environ()
+
+		stdin, err := c.StdinPipe()
+		if err != nil {
+			log.Fatalln(err)
 		}
+		go func() {
+			defer stdin.Close()
+			for _, bin := range bank.CardBINs {
+				fmt.Fprintf(stdin, "Bin: %s, Bank: %s, Name: %s Type: %s, Length: %v\n",
+					bin.Bin,
+					bin.Bank,
+					bank.BankNameMap[bin.Bank],
+					bin.Type,
+					bin.Length,
+				)
+			}
+		}()
+
+		c.Run()
+
 	},
 }
