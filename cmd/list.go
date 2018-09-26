@@ -23,6 +23,10 @@ var listCmd = &cobra.Command{
 
 		pager := os.Getenv("PAGER")
 
+		if pager == "" {
+			pager = "less"
+		}
+
 		c := exec.Command(pager)
 		c.Stdout = os.Stdout
 		c.Stderr = os.Stderr
@@ -45,7 +49,10 @@ var listCmd = &cobra.Command{
 			}
 		}()
 
-		c.Run()
+		err = c.Run()
+		if err != nil {
+			log.Fatalln(err)
+		}
 
 	},
 }
