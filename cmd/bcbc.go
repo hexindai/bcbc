@@ -7,6 +7,9 @@ import (
 	"github.com/spf13/cobra"
 )
 
+// BCBCVERSION bcbc version
+const BCBCVERSION = "0.0.4"
+
 var bcbc = &cobra.Command{
 	Use:   "bcbc",
 	Short: "bcbc is a command for searching China's bankcard info",
