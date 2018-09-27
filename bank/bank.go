@@ -19,9 +19,9 @@ type bank struct {
 }
 
 type node struct {
-	binByte   rune
-	nextNodes []*node
-	cardBIN   *CardBIN
+	binByte  rune
+	children []*node
+	cardBINs []*CardBIN
 }
 
 // Bank global bank
@@ -38,8 +38,8 @@ func init() {
 	defaultCardBINStore = b
 }
 
-func (in *node) nextNode(c rune) (*node, bool) {
-	for _, n := range in.nextNodes {
+func (in *node) child(c rune) (*node, bool) {
+	for _, n := range in.children {
 		if n.binByte == c {
 			return n, true
 		}
@@ -57,18 +57,23 @@ func (in *node) Get(card string) (c *CardBIN, e error) {
 		e = errors.New("cardNo: PARAM_ILLEGAL")
 		return
 	}
+outer:
 	for _, r := range card {
-		if n, ok := in.nextNode(r); ok {
-			if n.cardBIN != nil {
-				if l == n.cardBIN.Length {
-					c = n.cardBIN
-				}
-				break
-			}
-			in = n
-			continue
+		n, ok := in.child(r)
+		if !ok {
+			break
 		}
-		break
+		if n.cardBINs == nil {
+			in = n
+		} else {
+			for _, cb := range n.cardBINs {
+				if l == cb.Length {
+					c = cb
+					break outer
+				}
+			}
+			break
+		}
 	}
 	if c == nil {
 		e = errors.New("cardNo: CARD_BIN_NOT_MATCH")
@@ -82,15 +87,15 @@ func insert(n *node, bin []rune, cb *CardBIN) {
 		return
 	}
 	var nn *node
-	if ns, ok := n.nextNode(bin[0]); ok {
+	if ns, ok := n.child(bin[0]); ok {
 		nn = ns
 	} else {
 		nn = new(node)
 		nn.binByte = bin[0]
-		n.nextNodes = append(n.nextNodes, nn)
+		n.children = append(n.children, nn)
 	}
 	if l == 1 {
-		nn.cardBIN = cb
+		nn.cardBINs = append(nn.cardBINs, cb)
 		return
 	}
 	insert(nn, bin[1:], cb)

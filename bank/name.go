@@ -17,6 +17,7 @@ var BankNameMap = map[string]string{
 	"BNU":    "大西洋银行",
 	"BOC":    "中国银行",
 	"BOCD":   "承德银行",
+	"BOCFCB": "中银富登村镇银行",
 	"BOCY":   "朝阳银行",
 	"BOD":    "东莞银行",
 	"BODD":   "丹东银行",
@@ -210,6 +211,7 @@ var BankNameMap = map[string]string{
 
 	"XABANK": "西安银行",
 	"XCYH":   "许昌银行",
+	"XHCZYH": "新华村镇银行",
 	"XJRCU":  "新疆农村信用社",
 	"XLBANK": "中山小榄村镇银行",
 	"XMBANK": "厦门银行",
