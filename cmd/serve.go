@@ -19,8 +19,8 @@ func init() {
 
 var serveCmd = &cobra.Command{
 	Use:   "serve",
-	Short: "Start a http bankcard info server",
-	Long:  "\nStart http server for searching bankcard info",
+	Short: "Serve as a http server",
+	Long:  "\nServe as a http server",
 	Run: func(cmd *cobra.Command, args []string) {
 
 		http.HandleFunc("/cardInfo.json", func(w http.ResponseWriter, req *http.Request) {

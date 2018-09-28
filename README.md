@@ -29,9 +29,10 @@ Usage:
 
 Available Commands:
   help        Help about any command
-  list        List all bank cardbins
+  list        List all bank card BINs
   search      Search bankcard info
-  serve       Start a http bankcard info server
+  serve       Serve as a http server
+  version     Print version and exit
 
 Flags:
   -h, --help   help for bcbc

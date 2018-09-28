@@ -24,7 +24,7 @@ func init() {
 var searchCmd = &cobra.Command{
 	Use:   "search",
 	Short: "Search bankcard info",
-	Long:  "\nSearch subcommand for searching bankcard info",
+	Long:  "\nSearch bankcard info",
 	Run: func(cmd *cobra.Command, args []string) {
 
 		cbcr := response.New(card)
