@@ -69,6 +69,7 @@ var BankNameMap = map[string]string{
 	"DZCBANK": "达州银行",
 
 	"EGBANK": "恒丰银行",
+	"ERB":    "龙岗鼎业村镇银行",
 	"ESRCB":  "恩施农村商业银行",
 
 	"FDB":    "富滇银行",
@@ -106,7 +107,7 @@ var BankNameMap = map[string]string{
 	"HRXJB":    "华融湘江银行",
 	"HSB":      "恒生银行",
 	"HSBANK":   "徽商银行",
-	"HSBC":     "汇丰银行",
+	"HSBC":     "汇丰银行(中国)",
 	"HSBK":     "衡水银行",
 	"HURCB":    "湖北省农村信用社",
 	"HXBANK":   "华夏银行",
@@ -179,6 +180,7 @@ var BankNameMap = map[string]string{
 	"RZB":  "日照银行",
 
 	"SCB":     "渣打银行",
+	"SCBHK":   "渣打银行(香港)",
 	"SCCB":    "三门峡银行",
 	"SCRCU":   "四川省农村信用社",
 	"SDEB":    "顺德农商银行",
@@ -203,6 +205,7 @@ var BankNameMap = map[string]string{
 	"TRCB":  "天津农商银行",
 	"TZCB":  "台州银行",
 
+	"URB":     "联合村镇银行",
 	"URMQCCB": "乌鲁木齐市商业银行",
 
 	"WHBANK": "乌海银行",
