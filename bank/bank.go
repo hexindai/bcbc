@@ -13,7 +13,7 @@ type CardBIN struct {
 }
 
 // Bank bank
-type bank struct {
+type Bank struct {
 	initialized bool
 	*node
 }
@@ -24,18 +24,28 @@ type node struct {
 	cardBINs []*CardBIN
 }
 
-// Bank global bank
-var defaultCardBINStore *bank
+// DefaultBank initialized by Default BINS
+var defaultBank *Bank
 
 func init() {
-	b := new(bank)
-	rNode := new(node)
-	for _, c := range CardBINs {
-		rNode.Insert(c)
+	defaultBank = New(CardBINs[:])
+}
+
+// New returns a bank point that is initialized by []*CardBIN
+func New(cb []*CardBIN) *Bank {
+	b := new(Bank)
+	root := new(node)
+	for _, c := range cb {
+		root.Insert(c)
 	}
-	b.node = rNode
+	b.node = root
 	b.initialized = true
-	defaultCardBINStore = b
+	return b
+}
+
+// Get fetch card BIN via card
+func Get(card string) (*CardBIN, error) {
+	return defaultBank.Get(card)
 }
 
 func (in *node) child(c rune) (*node, bool) {
@@ -57,22 +67,17 @@ func (in *node) Get(card string) (c *CardBIN, e error) {
 		e = errors.New("cardNo: PARAM_ILLEGAL")
 		return
 	}
-outer:
 	for _, r := range card {
 		n, ok := in.child(r)
 		if !ok {
 			break
 		}
-		if n.cardBINs == nil {
-			in = n
-		} else {
-			for _, cb := range n.cardBINs {
-				if l == cb.Length {
-					c = cb
-					break outer
-				}
+		in = n
+		for _, cb := range n.cardBINs {
+			if l == cb.Length {
+				c = cb
+				break
 			}
-			break
 		}
 	}
 	if c == nil {

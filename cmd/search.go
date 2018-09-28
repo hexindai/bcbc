@@ -1,11 +1,12 @@
 package cmd
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/spf13/cobra"
 
-	"github.com/hexindai/bcbc/bank"
+	"github.com/hexindai/bcbc/response"
 )
 
 var (
@@ -26,12 +27,14 @@ var searchCmd = &cobra.Command{
 	Long:  "\nSearch subcommand for searching bankcard info",
 	Run: func(cmd *cobra.Command, args []string) {
 
-		cbcr := bank.FetchCardBinCheckByCard(card)
+		cbcr := response.New(card)
 
 		if output == "json" {
-			cbcr.WriteResponse(os.Stdout, bank.JSONContentType)
+			cbcr.WriteResponse(os.Stdout, response.JSONContentType)
 		} else {
-			cbcr.WriteResponse(os.Stdout, bank.TextContentType)
+			cbcr.WriteResponse(os.Stdout, response.TextContentType)
 		}
+		fmt.Println()
+
 	},
 }

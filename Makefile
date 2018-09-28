@@ -2,6 +2,11 @@ BINFILE=bank/bin.go
 NAMEFILE=bank/name.go
 REPOPATH=github.com/hexindai/bcbc
 
+.PHONY: test
+test:
+	go test $(REPOPATH)/bank
+
+.PHONY: build
 build:
 	@echo "Generating $(BINFILE) file..."
 	@awk -f scripts/make-bin-go.awk data/bin.csv > $(BINFILE)
@@ -15,9 +20,6 @@ build:
 
 	go build $(REPOPATH)
 
-.PHONY: build
-
+.PHONY: install
 install:
 	go install $(REPOPATH)
-
-.PHONY: install

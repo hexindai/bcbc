@@ -19,6 +19,7 @@ var BankNameMap = map[string]string{
 	"BOCD":   "承德银行",
 	"BOCFCB": "中银富登村镇银行",
 	"BOCY":   "朝阳银行",
+	"BOCZ":   "沧州银行",
 	"BOD":    "东莞银行",
 	"BODD":   "丹东银行",
 	"BOHAIB": "渤海银行",
@@ -68,6 +69,7 @@ var BankNameMap = map[string]string{
 	"DZCBANK": "达州银行",
 
 	"EGBANK": "恒丰银行",
+	"ESRCB":  "恩施农村商业银行",
 
 	"FDB":    "富滇银行",
 	"FXCB":   "阜新银行",
@@ -165,7 +167,9 @@ var BankNameMap = map[string]string{
 	"PZBANK": "盘锦市商业银行",
 
 	"QDCCB":   "青岛银行",
+	"QDRCB":   "青岛农村商业银行",
 	"QHDBANK": "秦皇岛银行",
+	"QHDCCB":  "秦皇岛市商业银行",
 	"QHRC":    "青海农村信用社",
 	"QLBANK":  "齐鲁银行",
 	"QLCZYH":  "齐鲁村镇银行",
@@ -207,14 +211,18 @@ var BankNameMap = map[string]string{
 	"WHRCB":  "武汉农村商业银行",
 	"WJRCB":  "吴江农商银行",
 	"WRCB":   "无锡农村商业银行",
+	"WXCCB":  "无锡市商业银行",
 	"WZCB":   "温州银行",
 
 	"XABANK": "西安银行",
 	"XCYH":   "许昌银行",
+	"XFRCB":  "咸丰常农商村镇银行",
 	"XHCZYH": "新华村镇银行",
+	"XHRCB":  "新会农商银行",
 	"XJRCU":  "新疆农村信用社",
 	"XLBANK": "中山小榄村镇银行",
 	"XMBANK": "厦门银行",
+	"XMCCB":  "厦门市商业银行",
 	"XTB":    "邢台银行",
 	"XXBANK": "新乡银行",
 	"XYBANK": "信阳银行",
@@ -238,4 +246,5 @@ var BankNameMap = map[string]string{
 	"ZYB":     "中原银行",
 	"ZYCBANK": "遵义市商业银行",
 	"ZZBANK":  "郑州银行",
+	"ZZCCB":   "郑州商业银行",
 }

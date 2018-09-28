@@ -1,4 +1,4 @@
-package bank
+package response
 
 import (
 	"encoding/json"
@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/fatih/color"
+	"github.com/hexindai/bcbc/bank"
 )
 
 type (
@@ -51,7 +52,7 @@ const (
 	TextContentType
 )
 
-func (cbcr CardBinCheckResponse) toJSON() string {
+func (cbcr *CardBinCheckResponse) toJSON() string {
 	var output interface{}
 	if cbcr.Stat == "ok" && cbcr.Validated {
 		output = successJSONOutput{
@@ -72,7 +73,7 @@ func (cbcr CardBinCheckResponse) toJSON() string {
 	return string(b)
 }
 
-func (cbcr CardBinCheckResponse) toText() string {
+func (cbcr *CardBinCheckResponse) toText() string {
 	if cbcr.Stat == "ok" && cbcr.Validated {
 		return fmt.Sprintf(`
 Validated: %s
@@ -95,7 +96,7 @@ Messages %s
 }
 
 // WriteResponse writes response to io.Writer
-func (cbcr CardBinCheckResponse) WriteResponse(w io.Writer, c ContentType) error {
+func (cbcr *CardBinCheckResponse) WriteResponse(w io.Writer, c ContentType) error {
 	var err error
 	switch c {
 	case JSONContentType:
@@ -108,11 +109,11 @@ func (cbcr CardBinCheckResponse) WriteResponse(w io.Writer, c ContentType) error
 	return err
 }
 
-// FetchCardBinCheckByCard get cardBinCheckResponse by card
-func FetchCardBinCheckByCard(card string) CardBinCheckResponse {
+// New get cardBinCheckResponse by card
+func New(card string) *CardBinCheckResponse {
 	var cbcr CardBinCheckResponse
 
-	cb, err := defaultCardBINStore.Get(card)
+	cb, err := bank.Get(card)
 	if err != nil {
 		return makeErrorCardBinCheckResponse(card, err)
 	}
@@ -124,10 +125,10 @@ func FetchCardBinCheckByCard(card string) CardBinCheckResponse {
 	cbcr.Bank = cb.Bank
 	cbcr.CardBIN = cb.Bin
 
-	return cbcr
+	return &cbcr
 }
 
-func makeErrorCardBinCheckResponse(card string, err error) CardBinCheckResponse {
+func makeErrorCardBinCheckResponse(card string, err error) *CardBinCheckResponse {
 	var cbcr CardBinCheckResponse
 	cbcr.Validated = false
 	cbcr.Key = card
@@ -140,11 +141,11 @@ func makeErrorCardBinCheckResponse(card string, err error) CardBinCheckResponse 
 		k, v = ms[0], ms[1]
 	}
 	cbcr.Messages = append(cbcr.Messages, errorMessage{k, v})
-	return cbcr
+	return &cbcr
 }
 
 func bankName(b string) string {
-	if name, ok := BankNameMap[b]; ok {
+	if name, ok := bank.BankNameMap[b]; ok {
 		return name
 	}
 	return "Unknown"

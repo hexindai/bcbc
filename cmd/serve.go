@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/hexindai/bcbc/bank"
+	"github.com/hexindai/bcbc/response"
 	"github.com/spf13/cobra"
 )
 
@@ -25,10 +25,10 @@ var serveCmd = &cobra.Command{
 
 		http.HandleFunc("/cardInfo.json", func(w http.ResponseWriter, req *http.Request) {
 			cardNo := req.FormValue("cardNo")
-			cbcr := bank.FetchCardBinCheckByCard(cardNo)
+			cbcr := response.New(cardNo)
 
 			w.Header().Set("Content-Type", "application/json; charset=utf-8")
-			cbcr.WriteResponse(w, bank.JSONContentType)
+			cbcr.WriteResponse(w, response.JSONContentType)
 
 		})
 		log.Printf("Bankinfo server listen on port %s", port)
