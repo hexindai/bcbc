@@ -9,17 +9,12 @@ BEGIN {
   FS=","
 }
 
-/^bin/ { next }
-
-/^$/ { 
-  print "\n"
-  next
-}
-
-{ 
+FNR > 1 {
+  if ($1 ~ /^$/) {
+    print; next
+  }
   fmt = "&CardBIN{Bin: \"%s\", Bank: \"%s\", Type: \"%s\", Length: %s},\n"
   printf fmt, $1, $2, $3 ,$4
 }
 
 END { print "}" }
-

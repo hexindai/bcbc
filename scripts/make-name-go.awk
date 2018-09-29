@@ -9,17 +9,12 @@ BEGIN {
   FS=","
 }
 
-/^bank/ { next }
-
-/^$/ { 
-  print "\n"
-  next
-}
-
-{ 
+FNR > 1 {
+  if ($1 ~ /^$/) {
+    print; next
+  }
   fmt = "\"%s\":\"%s\",\n"
   printf fmt, $1, $2
 }
 
 END { print "}" }
-
