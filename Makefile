@@ -2,6 +2,9 @@ BINFILE=bank/bin.go
 NAMEFILE=bank/name.go
 REPOPATH=github.com/hexindai/bcbc
 
+.PHONY: all
+all: test build
+
 .PHONY: test
 test:
 	go test $(REPOPATH)/bank
