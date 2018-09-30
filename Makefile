@@ -16,7 +16,7 @@ test:
 build:
 	@echo "BUILD..."
 
-	@awk -f scripts/bin-sorted.awk $(DATABINFILE)
+	@awk -f scripts/sort-bin.awk $(DATABINFILE)
 	@echo "...$(DATABINFILE) SORTED"
 
 	@awk -f scripts/make-bin-go.awk $(DATABINFILE) > $(BINFILE)
