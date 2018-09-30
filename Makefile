@@ -1,27 +1,35 @@
 BINFILE=bank/bin.go
 NAMEFILE=bank/name.go
 REPOPATH=github.com/hexindai/bcbc
+DATABINFILE=data/bin.csv
+DATANAMEFILE=data/name.csv
 
 .PHONY: all
-all: test build
+all: build test
 
 .PHONY: test
 test:
-	go test $(REPOPATH)/bank
+	@echo "TEST..."
+	@go test $(REPOPATH)/bank
 
 .PHONY: build
 build:
-	@echo "Generating $(BINFILE) file..."
-	@awk -f scripts/make-bin-go.awk data/bin.csv > $(BINFILE)
-	@echo "Success! $(BINFILE) generated"
+	@echo "BUILD..."
 
-	@echo "Generating $(NAMEFILE) file..."
-	@awk -f scripts/make-name-go.awk data/name.csv > $(NAMEFILE)
-	@echo "Success! $(NAMEFILE) generated"
+	@awk -f scripts/bin-sorted.awk $(DATABINFILE)
+	@echo "...$(DATABINFILE) SORTED"
 
-	go fmt $(REPOPATH)/bank
+	@awk -f scripts/make-bin-go.awk $(DATABINFILE) > $(BINFILE)
+	@echo "...$(BINFILE) GENERATED"
 
-	go build $(REPOPATH)
+	@awk -f scripts/make-name-go.awk $(DATANAMEFILE) > $(NAMEFILE)
+	@echo "...$(NAMEFILE) GENERATED"
+
+	@go fmt $(REPOPATH)/bank
+	@echo "...FORMATTED"
+
+	@go build $(REPOPATH)
+	@echo "...OK"
 
 .PHONY: install
 install:

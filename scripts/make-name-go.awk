@@ -10,7 +10,7 @@ BEGIN {
 }
 
 FNR > 1 {
-  if ($1 ~ /^$/) {
+  if (/^$/) {
     print; next
   }
   fmt = "\"%s\":\"%s\",\n"
