@@ -1,8 +1,9 @@
-BINFILE=bank/bin.go
-NAMEFILE=bank/name.go
-REPOPATH=github.com/hexindai/bcbc
-DATABINFILE=data/bin.csv
-DATANAMEFILE=data/name.csv
+BINFILE ?= bank/bin.go
+NAMEFILE ?= bank/name.go
+DATABINFILE ?= data/bin.csv
+DATANAMEFILE ?= data/name.csv
+
+REPOPATH = github.com/hexindai/bcbc
 
 .PHONY: all
 all: build test
@@ -34,3 +35,14 @@ build:
 .PHONY: install
 install:
 	go install $(REPOPATH)
+
+.PHONY: add
+add:
+	@# check bin via api
+	@# if success, append it to $(DATABINFILE)
+	
+	@echo "CHECK bin: $(bin) len: $(len)"
+	@awk -f scripts/check-bin.awk -v bin=$(bin) -v len=$(len) -v binfile=$(DATABINFILE)
+
+	@awk -f scripts/sort-bin.awk $(DATABINFILE)
+	@echo "...$(DATABINFILE) SORTED"
