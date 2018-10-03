@@ -12,6 +12,11 @@ type CardBIN struct {
 	Length int
 }
 
+// BankName return CardBIN bankname
+func (cb CardBIN) BankName() string {
+	return BankNameMap[cb.Bank]
+}
+
 // Bank bank
 type Bank struct {
 	initialized bool

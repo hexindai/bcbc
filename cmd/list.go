@@ -42,7 +42,7 @@ var listCmd = &cobra.Command{
 				fmt.Fprintf(stdin, "Bin: %s, Bank: %s, Name: %s Type: %s, Length: %v\n",
 					bin.Bin,
 					bin.Bank,
-					bank.BankNameMap[bin.Bank],
+					bin.BankName(),
 					bin.Type,
 					bin.Length,
 				)
