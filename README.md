@@ -1,23 +1,25 @@
 bcbc
 ======
 
-bcbc是一个根据银行卡号，通过卡bin来判断所属银行的命令行
+bcbc is a command about China's bankcard info
 
-## 安装
+* Generate a random card No
+* Start a http server for checking bankcard info
+* Check card BIN via this command
 
-1. 直接下载安装
+## Install
 
-:point_right: [下载地址](https://github.com/hexindai/bcbc/releases)
+1. Download
 
-2. 如果是开发者，并且安装go
+:point_right: [HERE](https://github.com/hexindai/bcbc/releases)
+
+2. If you are a developer and Go installed
 
 ```bash
 go get -u -v github.com/hexindai/bcbc
 ```
 
-## 用法
-
-**以*nix为例，windows下用bcbc.exe**
+## Usage
 
 ```
 ➜ bcbc -h
@@ -30,6 +32,7 @@ Usage:
 Available Commands:
   help        Help about any command
   list        List all bank card BINs
+  random      Return a random bankcard
   search      Search bankcard info
   serve       Serve as a http server
   version     Print version and exit
