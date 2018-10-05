@@ -1,9 +1,5 @@
 package bank
 
-import (
-	"errors"
-)
-
 // CardBIN is bank card bin
 type CardBIN struct {
 	Bin    string
@@ -67,10 +63,9 @@ func (in *node) Insert(cb *CardBIN) {
 }
 
 func (in *node) Get(card string) (c *CardBIN, e error) {
-	l := len(card)
-	if l < 10 || l > 19 {
-		e = errors.New("cardNo: PARAM_ILLEGAL")
-		return
+	l, e := validate(card)
+	if e != nil {
+		return nil, e
 	}
 	for _, r := range card {
 		n, ok := in.child(r)
@@ -86,7 +81,7 @@ func (in *node) Get(card string) (c *CardBIN, e error) {
 		}
 	}
 	if c == nil {
-		e = errors.New("cardNo: CARD_BIN_NOT_MATCH")
+		e = ErrCardBINNotMatch
 	}
 	return
 }
@@ -109,4 +104,19 @@ func insert(n *node, bin []rune, cb *CardBIN) {
 		return
 	}
 	insert(nn, bin[1:], cb)
+}
+
+// validate check card and return the number of valid card numbers
+func validate(card string) (int, error) {
+	l := 0
+	for _, r := range card {
+		if r < '0' || r > '9' {
+			return l, ErrParamIllegal
+		}
+		l++
+	}
+	if l < 10 || l > 19 {
+		return l, ErrParamIllegal
+	}
+	return l, nil
 }
