@@ -42,7 +42,8 @@ add:
 	@# if success, append it to $(DATABINFILE)
 	
 	@echo "CHECK bin: $(bin) len: $(len)"
-	@awk -f scripts/check-bin.awk -v bin=$(bin) -v len=$(len) -v binfile=$(DATABINFILE)
+	@awk -f scripts/check-bin.awk -v bin=$(bin) -v len=$(len) -v binfile=$(DATABINFILE) #-v debug=true
 
-	@awk -f scripts/sort-bin.awk $(DATABINFILE)
+	@awk -f scripts/sort-bin.awk -v to=data/bin.tmp $(DATABINFILE)
+	@mv data/bin.tmp $(DATABINFILE)
 	@echo "...$(DATABINFILE) SORTED"

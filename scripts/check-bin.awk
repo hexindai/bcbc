@@ -23,7 +23,11 @@ BEGIN {
   }
   close(Service)
 
-  # print result
+  # print response result
+  if (debug) {
+    print result
+  }
+
   dumbParseJson(result, obj)
 
   if (obj["validated"]) {
@@ -36,16 +40,13 @@ BEGIN {
 function random_bank(bin, len,    i, j) {
   j = len - length(bin)
   for (i=0; i<j; i++) {
-    bin = bin get_num()
+    srand(systime() + i)
+    bin = bin int(rand() * 10)
   }
   return bin
 }
 
-function get_num() {
-  return int(rand() * 10)
-}
-
-function dumbParseJson(json, obj,    where) {
+function dumbParseJson(json, obj) {
 
   match(json, /^{"cardType":"(.+)","bank":"([^,]+)".*"validated":([^,]+).+$/, obj)
 
