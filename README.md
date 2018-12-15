@@ -1,6 +1,8 @@
 bcbc
 ======
 
+[![GoDoc](https://godoc.org/github.com/hexindai/bcbc/bank?status.svg)](https://godoc.org/github.com/hexindai/bcbc/bank)
+
 bcbc is a command about China's bankcard info
 
 * Generate a random card No
