@@ -2,6 +2,7 @@ BINFILE ?= bank/bin.go
 NAMEFILE ?= bank/name.go
 DATABINFILE ?= data/bin.csv
 DATANAMEFILE ?= data/name.csv
+TMPBINFILE ?= data/bin.tmp
 
 REPOPATH = github.com/hexindai/bcbc
 
@@ -15,9 +16,10 @@ test:
 
 .PHONY: build
 build:
-	@echo "BUILD..."
+	@echo ">> BUILDING"
 
-	@awk -f scripts/sort-bin.awk $(DATABINFILE)
+	@awk -f scripts/sort-bin.awk -v to=$(TMPBINFILE) $(DATABINFILE)
+	@mv $(TMPBINFILE) $(DATABINFILE)
 	@echo "...$(DATABINFILE) SORTED"
 
 	@awk -f scripts/make-bin-go.awk $(DATABINFILE) > $(BINFILE)
@@ -26,11 +28,12 @@ build:
 	@awk -f scripts/make-name-go.awk $(DATANAMEFILE) > $(NAMEFILE)
 	@echo "...$(NAMEFILE) GENERATED"
 
-	@go fmt $(REPOPATH)/bank
-	@echo "...FORMATTED"
+	@echo ">> FORMATTING"
+	go fmt $(REPOPATH)/bank
+	@echo "FORMATTED"
 
-	@go build $(REPOPATH)
-	@echo "...OK"
+	go build $(REPOPATH)
+	@echo "SUCCESS"
 
 .PHONY: install
 install:
@@ -44,6 +47,6 @@ add:
 	@echo "CHECK bin: $(bin) len: $(len)"
 	@awk -f scripts/check-bin.awk -v bin=$(bin) -v len=$(len) -v binfile=$(DATABINFILE) #-v debug=true
 
-	@awk -f scripts/sort-bin.awk -v to=data/bin.tmp $(DATABINFILE)
-	@mv data/bin.tmp $(DATABINFILE)
+	@awk -f scripts/sort-bin.awk -v to=$(TMPBINFILE) $(DATABINFILE)
+	@mv $(TMPBINFILE) $(DATABINFILE)
 	@echo "...$(DATABINFILE) SORTED"
