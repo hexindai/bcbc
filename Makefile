@@ -1,39 +1,36 @@
-BINFILE ?= bank/bin.go
-NAMEFILE ?= bank/name.go
-DATABINFILE ?= data/bin.csv
-DATANAMEFILE ?= data/name.csv
-TMPBINFILE ?= data/bin.tmp
+BINFILE := bank/bin.go
+NAMEFILE := bank/name.go
+DATABINFILE := data/bin.csv
+DATANAMEFILE := data/name.csv
+TMPBINFILE := data/bin.tmp
 
-REPOPATH = github.com/hexindai/bcbc
+REPOPATH := github.com/hexindai/bcbc
+
+ifeq ($(DEBUG), 1)
+debug := 1
+else
+debug := 0
+endif
+
 
 .PHONY: all
 all: build test
 
 .PHONY: test
 test:
-	@echo "TEST..."
-	@go test $(REPOPATH)/bank
+	@echo "TEST..." \
+	&&go test $(REPOPATH)/bank
 
 .PHONY: build
 build:
-	@echo ">> BUILDING"
+	@echo ">> Generating data go file" \
+	&& $(call sort_bin,$(DATABINFILE)) \
+	&& awk -f scripts/make-bin-go.awk $(DATABINFILE) > $(BINFILE)	\
+	&& awk -f scripts/make-name-go.awk $(DATANAMEFILE) > $(NAMEFILE)
 
-	@awk -f scripts/sort-bin.awk -v to=$(TMPBINFILE) $(DATABINFILE)
-	@mv $(TMPBINFILE) $(DATABINFILE)
-	@echo "...$(DATABINFILE) SORTED"
-
-	@awk -f scripts/make-bin-go.awk $(DATABINFILE) > $(BINFILE)
-	@echo "...$(BINFILE) GENERATED"
-
-	@awk -f scripts/make-name-go.awk $(DATANAMEFILE) > $(NAMEFILE)
-	@echo "...$(NAMEFILE) GENERATED"
-
-	@echo ">> FORMATTING"
-	go fmt $(REPOPATH)/bank
-	@echo "FORMATTED"
-
-	go build $(REPOPATH)
-	@echo "SUCCESS"
+	@echo ">> Formating and building" \
+	&& go fmt $(REPOPATH)/bank >/dev/null \
+	&& go build $(REPOPATH)
 
 .PHONY: install
 install:
@@ -43,10 +40,14 @@ install:
 add:
 	@# check bin via api
 	@# if success, append it to $(DATABINFILE)
+	@# use DEBUG=1 to enable debug
 	
-	@echo "CHECK bin: $(bin) len: $(len)"
-	@awk -f scripts/check-bin.awk -v bin=$(bin) -v len=$(len) -v binfile=$(DATABINFILE) #-v debug=true
+	@echo "CHECK bin: $(bin) len: $(len)" \
+	&&awk -f scripts/check-bin.awk -v bin=$(bin) -v len=$(len) -v binfile=$(DATABINFILE) -v debug=$(debug)
 
-	@awk -f scripts/sort-bin.awk -v to=$(TMPBINFILE) $(DATABINFILE)
-	@mv $(TMPBINFILE) $(DATABINFILE)
-	@echo "...$(DATABINFILE) SORTED"
+	@$(call sort_bin,$(DATABINFILE))
+
+define sort_bin
+	awk -f scripts/sort-bin.awk -v to=$(TMPBINFILE) $(1) \
+	&& mv $(TMPBINFILE) $(1)
+endef

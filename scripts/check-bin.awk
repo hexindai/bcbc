@@ -25,7 +25,7 @@ BEGIN {
 
   # print response result
   if (debug) {
-    print result
+    print "[DEBUG] " result
   }
 
   dumbParseJson(result, obj)
