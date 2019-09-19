@@ -4,19 +4,15 @@ bcbc
 [![GoDoc](https://godoc.org/github.com/hexindai/bcbc/bank?status.svg)](https://godoc.org/github.com/hexindai/bcbc/bank)
 [![GoVersion](https://img.shields.io/github/v/release/hexindai/bcbc)](https://github.com/hexindai/bcbc/releases)
 
-bcbc is a command about China's bankcard info
+/**bcbc**/ : China UnionPay **B**ank **C**ard **B**IN **C**hecker
 
-* Generate a random card No
-* Start a http server for checking bankcard info
-* Check card BIN via this command
+A tool used for checking bank card BIN in both CLI and HTTP server mode.
 
 ## Install
 
-1. Download
+1. Download directly from [HERE](https://github.com/hexindai/bcbc/releases)
 
-:point_right: [HERE](https://github.com/hexindai/bcbc/releases)
-
-2. If you are a developer and Go installed
+2. If you are a developer and Go installed, you can build from source code.
 
 ```bash
 go get -u -v github.com/hexindai/bcbc
@@ -24,45 +20,25 @@ go get -u -v github.com/hexindai/bcbc
 
 ## Usage
 
+Show this command help
+
 ```
 ➜ bcbc -h
-
-bcbc is a command for searching China's bankcard info
-
-Usage:
-  bcbc [command]
-
-Available Commands:
-  help        Help about any command
-  list        List all bank card BINs
-  random      Return a random bankcard
-  search      Search bankcard info
-  serve       Serve as a http server
-  version     Print version and exit
-
-Flags:
-  -h, --help   help for bcbc
-
-Use "bcbc [command] --help" for more information about a command.
 ```
 
 #### CLI mode
 
 ```bash
-bcbc search -c 6222021234567890123 -o json
+$ bcbc search -c 6222021234567890123 -o json
+
+> {"bin":"622202","bank":"ICBC","name":"中国工商银行","type":"DC","length":19}
 ```
 
-#### Server Mode
-
-Default port is 3232
+#### Server mode
 
 ```bash
-bcbc serve -p :3232
-```
+$ bcbc serve -p :3232
 
-Result
-
-```
 $ curl http://127.0.0.1:3232/cardInfo.json\?cardNo\=6222021234567890123
 
 > {"bin":"622202","bank":"ICBC","name":"中国工商银行","type":"DC","length":19}
@@ -77,6 +53,4 @@ $ curl http://127.0.0.1:3232/cardInfo.json\?cardNo\=6222021234567890123
 
 ## License
 
-[MIT License](LICENSE)
-
-Copyright (c) 2018
+[MIT License](LICENSE) / Copyright (c) 2018
