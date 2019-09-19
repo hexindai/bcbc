@@ -2,6 +2,7 @@ bcbc
 ======
 
 [![GoDoc](https://godoc.org/github.com/hexindai/bcbc/bank?status.svg)](https://godoc.org/github.com/hexindai/bcbc/bank)
+[![GoVersion](https://img.shields.io/github/v/release/hexindai/bcbc)](https://github.com/hexindai/bcbc/releases)
 
 bcbc is a command about China's bankcard info
 
