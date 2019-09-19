@@ -67,6 +67,13 @@ $ curl http://127.0.0.1:3232/cardInfo.json\?cardNo\=6222021234567890123
 > {"bin":"622202","bank":"ICBC","name":"中国工商银行","type":"DC","length":19}
 ```
 
+## Contribution
+
+* Add new BIN: `make add len=16 bin=621245`
+* Build for generating source files: `make build`
+* Change version in file `cmd/bcbc.go`
+* Commit! (I will review and release it.)
+
 ## License
 
 [MIT License](LICENSE)

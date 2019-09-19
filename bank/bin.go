@@ -418,6 +418,7 @@ var CardBINs = [...]*CardBIN{
 	&CardBIN{Bin: "621241004", Bank: "BOSZ", Type: "DC", Length: 19},
 	&CardBIN{Bin: "621242", Bank: "LZYH", Type: "DC", Length: 19},
 	&CardBIN{Bin: "621244", Bank: "SJBANK", Type: "DC", Length: 16},
+	&CardBIN{Bin: "621246", Bank: "NCB", Type: "DC", Length: 19},
 	&CardBIN{Bin: "621247", Bank: "BNU", Type: "DC", Length: 19},
 	&CardBIN{Bin: "621250001", Bank: "HSBC", Type: "DC", Length: 16},
 	&CardBIN{Bin: "621251", Bank: "FJNX", Type: "DC", Length: 19},
