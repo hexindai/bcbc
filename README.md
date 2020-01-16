@@ -15,7 +15,7 @@ A tool used for checking bank card BIN in both CLI and HTTP server mode.
 2. If you are a developer and Go installed, you can build from source code.
 
 ```bash
-go get -u -v github.com/hexindai/bcbc
+$ go get -u -v github.com/hexindai/bcbc
 ```
 
 ## Usage
@@ -23,7 +23,7 @@ go get -u -v github.com/hexindai/bcbc
 Show this command help
 
 ```
-➜ bcbc -h
+$ bcbc -h
 ```
 
 #### CLI mode
@@ -39,7 +39,7 @@ $ bcbc search -c 6222021234567890123 -o json
 ```bash
 $ bcbc serve -p :3232
 
-$ curl http://127.0.0.1:3232/cardInfo.json\?cardNo\=6222021234567890123
+$ curl http://127.0.0.1:3232/cardInfo.json?cardNo=6222021234567890123
 
 > {"bin":"622202","bank":"ICBC","name":"中国工商银行","type":"DC","length":19}
 ```
@@ -53,4 +53,4 @@ $ curl http://127.0.0.1:3232/cardInfo.json\?cardNo\=6222021234567890123
 
 ## License
 
-[MIT License](LICENSE) / Copyright (c) 2018
+[MIT License](LICENSE) / Copyright (c) 2020
