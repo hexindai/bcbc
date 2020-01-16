@@ -150,7 +150,7 @@ var BankNameMap = map[string]string{
 	"JSBANK":  "江苏银行",
 	"JSRCU":   "江苏省农村信用联合社",
 	"JXBANK":  "嘉兴银行",
-	"JXRCU":   "江西省农村信用",
+	"JXRCU":   "江西省农村信用社",
 	"JZBANK":  "晋中市商业银行",
 	"JZCBANK": "焦作市商业银行",
 
@@ -178,7 +178,7 @@ var BankNameMap = map[string]string{
 
 	"NBBANK": "宁波银行",
 	"NBYZ":   "鄞州银行",
-	"NCB":    "南昌银行",
+	"NCB":    "江西银行",
 	"NCBANK": "宁波通商银行",
 	"NDHB":   "宁波东海银行",
 	"NHB":    "南海农村信用联社",
