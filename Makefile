@@ -29,7 +29,7 @@ build:
 	&& awk -f scripts/make-name-go.awk $(DATANAMEFILE) > $(NAMEFILE)
 
 	@echo ">> Formating and building" \
-	&& go fmt $(REPOPATH)/bank >/dev/null \
+	&& gofmt -l -w -s bank \
 	&& go build $(REPOPATH)
 
 .PHONY: install
@@ -43,7 +43,7 @@ add:
 	@# use DEBUG=1 to enable debug
 	
 	@echo "CHECK bin: $(bin) len: $(len)" \
-	&&awk -f scripts/check-bin.awk -v bin=$(bin) -v len=$(len) -v binfile=$(DATABINFILE) -v debug=$(debug)
+	&& awk -f scripts/check-bin.awk -v bin=$(bin) -v len=$(len) -v binfile=$(DATABINFILE) -v debug=$(debug)
 
 	@$(call sort_bin,$(DATABINFILE))
 
