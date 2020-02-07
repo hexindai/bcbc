@@ -1,6 +1,8 @@
 bcbc
 ======
 
+[![Github Workflows](https://github.com/hexindai/bcbc/workflows/bcbc-ci-wf/badge.svg)](https://github.com/hexindai/bcbc/actions?query=workflow%3Abcbc-ci-wf)
+
 [![GoDoc](https://godoc.org/github.com/hexindai/bcbc/bank?status.svg)](https://godoc.org/github.com/hexindai/bcbc/bank)
 [![GoVersion](https://img.shields.io/github/v/release/hexindai/bcbc)](https://github.com/hexindai/bcbc/releases)
 [![GoReportCard](https://goreportcard.com/badge/github.com/hexindai/bcbc)](https://goreportcard.com/report/github.com/hexindai/bcbc)
