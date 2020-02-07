@@ -19,18 +19,18 @@ all: build test
 .PHONY: test
 test:
 	@echo "TEST..." \
-	&&go test $(REPOPATH)/bank
+	&& go test $(REPOPATH)/bank
 
 .PHONY: build
 build:
-	@echo ">> Generating data go file" \
+	@echo ">> Generating go source files with bankcard data" \
 	&& $(call sort_bin,$(DATABINFILE)) \
 	&& awk -f scripts/make-bin-go.awk $(DATABINFILE) > $(BINFILE)	\
 	&& awk -f scripts/make-name-go.awk $(DATANAMEFILE) > $(NAMEFILE)
 
 	@echo ">> Formating and building" \
 	&& gofmt -l -w -s bank \
-	&& go build $(REPOPATH)
+	&& go build -v $(REPOPATH)
 
 .PHONY: install
 install:

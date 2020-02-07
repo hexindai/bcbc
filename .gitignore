@@ -1,6 +1,10 @@
 # ide
 .vscode
 
+# generated file
+bank/bin.go
+bank/name.go
+
 # resource
 resource
 
