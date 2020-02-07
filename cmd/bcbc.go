@@ -12,8 +12,8 @@ const BCBCVERSION = "0.0.8"
 
 var bcbc = &cobra.Command{
 	Use:   "bcbc",
-	Short: "bcbc is a command for searching China's bankcard info",
-	Long:  "\nbcbc is a command for searching China's bankcard info",
+	Short: "China UnionPay Bank Card BIN Checker",
+	Long:  "China UnionPay Bank Card BIN Checker",
 }
 
 // Execute bcbc command

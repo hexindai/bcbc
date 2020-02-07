@@ -18,7 +18,7 @@ func init() {
 var listCmd = &cobra.Command{
 	Use:   "list",
 	Short: "List all bank card BINs",
-	Long:  "\nList all bank card BINs",
+	Long:  "List all bank card BINs",
 	Run: func(cmd *cobra.Command, args []string) {
 
 		pager := os.Getenv("PAGER")

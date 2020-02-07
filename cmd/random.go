@@ -17,7 +17,7 @@ func init() {
 var randomCmd = &cobra.Command{
 	Use:   "random",
 	Short: "Return a random bankcard",
-	Long:  "\nReturn a random bankcard",
+	Long:  "Return a random bankcard",
 	Run: func(cmd *cobra.Command, args []string) {
 		bin := randomBin()
 		bankcard := make([]byte, 0, bin.Length)
