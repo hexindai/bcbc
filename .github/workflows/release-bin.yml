@@ -2,8 +2,10 @@ name: bcbc-release-bin-wf
 
 on:
   push:
+    branches:
+      - "!*"
     tags:
-      - '*'
+      - "v*.*.*"
 
 jobs:
 
