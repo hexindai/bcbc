@@ -4,7 +4,7 @@ bcbc
 [![Github Workflows](https://github.com/hexindai/bcbc/workflows/bcbc-ci-wf/badge.svg)](https://github.com/hexindai/bcbc/actions?query=workflow%3Abcbc-ci-wf)
 
 [![GoDoc](https://godoc.org/github.com/hexindai/bcbc/bank?status.svg)](https://pkg.go.dev/github.com/hexindai/bcbc/bank?tab=doc)
-[![GoVersion](https://img.shields.io/github/v/release/hexindai/bcbc)](https://github.com/hexindai/bcbc/releases)
+[![GoVersion](https://img.shields.io/github/v/release/hexindai/bcbc)](https://github.com/hexindai/bcbc/releases/latest)
 [![GoReportCard](https://goreportcard.com/badge/github.com/hexindai/bcbc)](https://goreportcard.com/report/github.com/hexindai/bcbc)
 
 /**bcbc**/ : China UnionPay **B**ank **C**ard **B**IN **C**hecker
