@@ -14,10 +14,16 @@ endif
 
 
 .PHONY: all
-all: build test
+all: clean build test
+
+.PHONY: clean
+clean:
+	@echo "Clean..." \
+	&& rm -f $(BINFILE) $(NAMEFILE) \
+	&& go clean -i -testcache $(REPOPATH)
 
 .PHONY: test
-test:
+test: build
 	@echo "TEST..." \
 	&& go test $(REPOPATH)/bank
 

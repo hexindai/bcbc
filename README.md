@@ -3,7 +3,7 @@ bcbc
 
 [![Github Workflows](https://github.com/hexindai/bcbc/workflows/bcbc-ci-wf/badge.svg)](https://github.com/hexindai/bcbc/actions?query=workflow%3Abcbc-ci-wf)
 
-[![GoDoc](https://godoc.org/github.com/hexindai/bcbc/bank?status.svg)](https://godoc.org/github.com/hexindai/bcbc/bank)
+[![GoDoc](https://godoc.org/github.com/hexindai/bcbc/bank?status.svg)](https://pkg.go.dev/github.com/hexindai/bcbc/bank?tab=doc)
 [![GoVersion](https://img.shields.io/github/v/release/hexindai/bcbc)](https://github.com/hexindai/bcbc/releases)
 [![GoReportCard](https://goreportcard.com/badge/github.com/hexindai/bcbc)](https://goreportcard.com/report/github.com/hexindai/bcbc)
 
@@ -56,4 +56,4 @@ $ curl http://127.0.0.1:3232/cardInfo.json?cardNo=6222021234567890123
 
 ## License
 
-[MIT License](LICENSE) / Copyright (c) 2020
+[MIT License](LICENSE) / Copyright (c) 2018 - 2020

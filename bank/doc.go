@@ -3,7 +3,7 @@
 // that can be found in the LICENSE file.
 
 /*
-Package bank provides CardBIN searching.
+Package bank provides China UnionPay CardBIN searching.
 
 Get search card BIN:
 
