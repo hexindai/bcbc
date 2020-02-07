@@ -8,32 +8,32 @@ builds:
     - darwin
     - windows
   
-  archives:
-  - name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
-    replacements:
-      darwin: Darwin
-      linux: Linux
-      windows: Windows
-      386: i386
-      amd64: x86_64
-  
-  checksum:
-    # You can change the name of the checksums file.
-    # Default is `{{ .ProjectName }}_{{ .Version }}_checksums.txt`.
-    name_template: "{{ .ProjectName }}_{{ .Version }}_checksums.txt"
-  
-    # Algorithm to be used.
-    # Accepted options are sha256, sha512, sha1, crc32, md5, sha224 and sha384.
-    # Default is sha256.
-    algorithm: sha256
-  
-  snapshot:
-    name_template: "{{ .Tag }}-next"
-  
-  changelog:
-    sort: asc
-    filters:
-      exclude:
-      - '^docs:'
-      - '^test:'
+archives:
+- name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+  replacements:
+    darwin: Darwin
+    linux: Linux
+    windows: Windows
+    386: i386
+    amd64: x86_64
+
+checksum:
+  # You can change the name of the checksums file.
+  # Default is `{{ .ProjectName }}_{{ .Version }}_checksums.txt`.
+  name_template: "{{ .ProjectName }}_{{ .Version }}_checksums.txt"
+
+  # Algorithm to be used.
+  # Accepted options are sha256, sha512, sha1, crc32, md5, sha224 and sha384.
+  # Default is sha256.
+  algorithm: sha256
+
+snapshot:
+  name_template: "{{ .Tag }}-next"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+    - '^docs:'
+    - '^test:'
   
