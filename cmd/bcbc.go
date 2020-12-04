@@ -8,7 +8,7 @@ import (
 )
 
 // BCBCVERSION bcbc version
-const BCBCVERSION = "0.0.9"
+const BCBCVERSION = "0.0.10"
 
 var bcbc = &cobra.Command{
 	Use:   "bcbc",
