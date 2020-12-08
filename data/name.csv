@@ -28,7 +28,7 @@ BOL,洛阳银行
 BOP,平顶山银行
 BOQH,青海银行
 BOQZ,泉州银行
-BOSH,新韩银行(中国)
+BOSH,新韩银行（中国）
 BOSZ,苏州银行
 BOYK,营口银行
 BOZK,周口银行
@@ -49,7 +49,7 @@ CEP,中银通商务支付有限公司
 CGNB,南充市商业银行
 CHB,创兴银行有限公司
 CIB,兴业银行
-CITI,花旗银行(中国)
+CITI,花旗银行（中国）
 CITIC,中信银行
 CJCCB,苏州长江商业银行
 CMB,招商银行
@@ -60,7 +60,7 @@ CQBANK,重庆银行
 CRCBANK,重庆农村商业银行
 CSC,CSC借记卡
 CSCB,长沙银行
-CSRCB,常熟农村商业银行
+CSRCB,常熟农商银行
 CYBC,集友银行
 CYS,中国银盛
 CZBANK,浙商银行
@@ -126,7 +126,7 @@ HRBANK,哈尔滨银行
 HRXJB,华融湘江银行
 HSB,恒生银行
 HSBANK,徽商银行
-HSBC,汇丰银行(中国)
+HSBC,汇丰银行（中国）
 HSBK,衡水银行
 HURCB,湖北省农村信用社
 HXBANK,华夏银行
@@ -211,12 +211,13 @@ RZB,日照银行
 RZCCB,日照银行
 
 SCB,渣打银行
-SCBHK,渣打银行(香港)
+SCBHK,渣打银行（香港）
 SCCB,三门峡银行
 SCRCU,四川省农村信用社
 SDEB,顺德农商银行
 SDRCU,山东省农村信用社
 SHBANK,上海银行
+SHCBHK,上海商业银行（香港）
 SHRCB,上海农村商业银行
 SJBANK,盛京银行
 SLH,湖南农村信用社联合社
@@ -252,7 +253,7 @@ WHRCB,武汉农村商业银行
 WJRCB,吴江农商银行
 WLB,永隆银行
 WLBHK,永隆银行
-WOORI,友利银行(中国)
+WOORI,友利银行（中国）
 WRCB,无锡农村商业银行
 WXCCB,无锡市商业银行
 WZCB,温州银行
