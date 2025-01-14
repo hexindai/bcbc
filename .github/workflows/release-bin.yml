@@ -8,8 +8,7 @@ on:
       - "v*.*.*"
 
 jobs:
-
-  release:
+  goreleaser:
     name: Release
     runs-on: ubuntu-latest
     steps:
@@ -26,9 +25,9 @@ jobs:
       run: make build
 
     - name: Run GoReleaser
-      uses: goreleaser/goreleaser-action@v2
+      uses: goreleaser/goreleaser-action@v6
       with:
         version: latest
-        args: release --rm-dist
+        args: release --clean
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
