@@ -20,7 +20,7 @@ all: clean build test
 clean:
 	@echo "Clean..." \
 	&& rm -f $(BINFILE) $(NAMEFILE) \
-	&& go clean -i -testcache $(REPOPATH)
+	&& go clean -i -testcache
 
 .PHONY: test
 test: build
