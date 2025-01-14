@@ -1,4 +1,4 @@
-bcbc
+bcbc [![PkgGoDev](https://pkg.go.dev/badge/github.com/hexindai/bcbc/bank)](https://pkg.go.dev/github.com/hexindai/bcbc/bank?tab=doc)
 ======
 
 [![Github Workflows](https://github.com/hexindai/bcbc/workflows/bcbc-ci-wf/badge.svg)](https://github.com/hexindai/bcbc/actions?query=workflow%3Abcbc-ci-wf)
@@ -27,7 +27,7 @@ Show this command help
 $ bcbc -h
 ```
 
-#### As a cli
+#### Cli
 
 ```bash
 $ bcbc search -c 6222021234567890123 -o json
@@ -35,7 +35,7 @@ $ bcbc search -c 6222021234567890123 -o json
 > {"bin":"622202","bank":"ICBC","name":"中国工商银行","type":"DC","length":19}
 ```
 
-#### As a HTTP server
+#### HTTP Server
 
 ```bash
 $ bcbc serve -p :3232
@@ -45,13 +45,13 @@ $ curl http://127.0.0.1:3232/cardInfo.json?cardNo=6222021234567890123
 > {"bin":"622202","bank":"ICBC","name":"中国工商银行","type":"DC","length":19}
 ```
 
-#### As a library
+#### Go package
 
-See [![PkgGoDev](https://pkg.go.dev/badge/github.com/hexindai/bcbc/bank)](https://pkg.go.dev/github.com/hexindai/bcbc/bank?tab=doc)
+See [pkg.go.dev](https://pkg.go.dev/github.com/hexindai/bcbc/bank)
 
 ## Contribution
 
-* Add new BIN: `make add len=16 bin=621245`
+* Add new BIN: `make add len=16 bin=621245` (need to install gawk)
 * Build for generating source files: `make build`
 * Change version in file `cmd/bcbc.go`
 * Commit! (I will review and release it.)

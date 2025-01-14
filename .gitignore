@@ -2,8 +2,8 @@
 .vscode
 
 # generated file
-bank/bin.go
-bank/name.go
+# bank/bin.go
+# bank/name.go
 
 # resource
 resource

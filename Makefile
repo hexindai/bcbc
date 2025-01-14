@@ -34,7 +34,7 @@ build:
 	&& awk -f scripts/make-bin-go.awk $(DATABINFILE) > $(BINFILE)	\
 	&& awk -f scripts/make-name-go.awk $(DATANAMEFILE) > $(NAMEFILE)
 
-	@echo ">> Formating and building" \
+	@echo ">> Golang formating and building" \
 	&& gofmt -l -w -s bank \
 	&& go build -v $(REPOPATH)
 
@@ -54,6 +54,7 @@ add:
 	@$(call sort_bin,$(DATABINFILE))
 
 define sort_bin
+	echo "Sorting BIN file" && \
 	awk -f scripts/sort-bin.awk -v to=$(TMPBINFILE) $(1) \
 	&& mv $(TMPBINFILE) $(1)
 endef

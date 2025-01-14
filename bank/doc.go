@@ -8,6 +8,5 @@ Package bank provides China UnionPay CardBIN searching.
 Get search card BIN:
 
 	resp, err := bank.Get("6222021234567890123")
-
 */
 package bank
