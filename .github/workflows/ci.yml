@@ -1,4 +1,4 @@
-name: bcbc-ci-wf
+name: bcbc
 
 on:
   push:

@@ -1,7 +1,7 @@
 bcbc [![PkgGoDev](https://pkg.go.dev/badge/github.com/hexindai/bcbc/bank)](https://pkg.go.dev/github.com/hexindai/bcbc/bank?tab=doc)
 ======
 
-[![Github Workflows](https://github.com/hexindai/bcbc/workflows/bcbc-ci-wf/badge.svg)](https://github.com/hexindai/bcbc/actions?query=workflow%3Abcbc-ci-wf)
+[![Github Workflows](https://github.com/hexindai/bcbc/workflows/bcbc/badge.svg)](https://github.com/hexindai/bcbc/actions?query=workflow%3Abcbc)
 [![GoVersion](https://img.shields.io/github/v/release/hexindai/bcbc)](https://github.com/hexindai/bcbc/releases/latest)
 [![GoReportCard](https://goreportcard.com/badge/github.com/hexindai/bcbc)](https://goreportcard.com/report/github.com/hexindai/bcbc)
 
@@ -16,7 +16,7 @@ A tool used for checking bank card BIN in both CLI and HTTP server mode.
 2. If you are a developer and Go installed, you can build from source code.
 
 ```bash
-$ go get -u -v github.com/hexindai/bcbc
+$ go install github.com/hexindai/bcbc@latest
 ```
 
 ## Usage
